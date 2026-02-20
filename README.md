@@ -851,9 +851,9 @@ Example contribution:
 
 ## Authors
 
-- Alp Keskin <@alpkeskin>
-- Burak Tahtacı <@tahtaciburak>
-- Emre Kaşkaval <@ekaskaval>
-- Enes Can Güven <@enescanguven>
-- Zeynel Acar <@zeynelacar>
-- İlhami Selamet <@ilhamiselamet>
+- [Alp Keskin](https://github.com/alpkeskin)
+- [Burak Tahtacı](https://github.com/tahtaciburak)
+- [Emre Kaşkaval](https://github.com/ekaskaval)
+- [Enes Can Güven](https://github.com/enescanguven)
+- [Zeynel Acar](https://github.com/zeynelacar)
+- [İlhami Selamet](https://github.com/ilhamiselamet)
