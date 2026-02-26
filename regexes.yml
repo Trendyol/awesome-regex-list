@@ -59,10 +59,16 @@
   description: Patterns for detecting fax numbers.
   regexes:
     - '(?i)\b(faks|fax)[\s:.-]?\s*(\+?(\d{1,4})?[-\s\.]?(\(?\d{1,4}\)?)?[-\s\.]?\d{1,}[-\s\.]?\d{1,}[-\s\.]?\d{1,}[-\s\.]?\d{1,})\b'
-- name: Github Credentails
-  description: Patterns for detecting Github credentials.
+- name: Github Credentials
+  description: Patterns for detecting GitHub personal access tokens, fine-grained tokens, OAuth tokens, and GitHub App tokens.
   regexes:
     - '[gG][iI][tT][hH][uU][bB].*[''|"][0-9a-zA-Z]{35,40}[''|"]'
+    - 'ghp_[a-zA-Z0-9]{36}'
+    - 'github_pat_[a-zA-Z0-9]{22}_[a-zA-Z0-9]{59}'
+    - 'gho_[a-zA-Z0-9]{36}'
+    - 'ghu_[a-zA-Z0-9]{36}'
+    - 'ghs_[a-zA-Z0-9]{36}'
+    - 'ghr_[a-zA-Z0-9]{36}'
 - name: IBAN Information
   description: Patterns for detecting IBAN numbers.
   regexes:

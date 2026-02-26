@@ -1,11 +1,11 @@
-[![Patterns](https://img.shields.io/badge/patterns-37+-blue)](https://github.com/trendyol/awesome-regex-list)
+[![Patterns](https://img.shields.io/badge/patterns-43+-blue)](https://github.com/trendyol/awesome-regex-list)
 [![Categories](https://img.shields.io/badge/categories-15-green)](https://github.com/trendyol/awesome-regex-list)
 [![License](https://img.shields.io/badge/license-Apache%202.0-orange)](LICENSE)
 [![Format](https://img.shields.io/badge/format-YAML-yellow)](regexes.yml)
 
 ## TL;DR
 
-A curated collection of **37+ regex patterns** for detecting **credentials**, **PII**, and **sensitive data** (optimized for Turkish data). Features **context-aware matching** to reduce false positives. Ready to use in security scanning, data validation, and compliance tools.
+A curated collection of **43+ regex patterns** for detecting **credentials**, **PII**, and **sensitive data** (optimized for Turkish data). Features **context-aware matching** to reduce false positives. Ready to use in security scanning, data validation, and compliance tools.
 
 ```yaml
 # Example usage
@@ -54,32 +54,32 @@ This significantly reduces false positives while maintaining high recall for act
 
 ## Quick Reference
 
-| Category                                                     | Patterns | Use Case                                 |
-| ------------------------------------------------------------ | -------- | ---------------------------------------- |
-| [Access Credentials](#access-credentials)                       | 10       | API keys, tokens, authentication         |
-| [Amazon Web Services](#amazon-web-services)                     | 5        | AWS keys, secrets, MWS tokens            |
-| [Cloudflare](#cloudflare)                                       | 4        | Cloudflare API tokens                    |
-| [Google Credentials](#google-credentials)                       | 6        | Google API keys, OAuth, service accounts |
-| [Address Information](#address-information)                     | 1        | Physical addresses, location data        |
-| [Credit Card Information](#credit-card-information)             | 2        | Card numbers, CVV codes                  |
-| [Birthday Information](#birthday-information)                   | 1        | Date of birth, PII detection             |
-| [Database Connection Strings](#database-connection-strings)     | 1        | DB URLs, connection strings              |
-| [Email Addresses](#email-addresses)                             | 1        | Email detection                          |
-| [Fax Numbers](#fax-numbers)                                     | 1        | Fax number detection                     |
-| [Github Credentials](#github-credentials)                       | 1        | GitHub tokens                            |
-| [IBAN Information](#iban-information)                           | 1        | Bank account numbers                     |
-| [IP Addresses](#ip-addresses)                                   | 1        | IPv4 address detection                   |
-| [Mac Addresses](#mac-addresses)                                 | 1        | Mac Address Detection                    |
-| [OpenAI Credentials](#openai-credentials)                       | 1        | OpenAI API keys and tokens               |
-| [Password](#password)                                           | 1        | Password detection in code/config        |
-| [Phone Numbers](#phone-numbers)                                 | 7        | Turkish phone number formats             |
-| [Private Keys and Certificates](#private-keys-and-certificates) | 2        | Private keys, SSL/TLS certificates       |
-| [Slack Credentials](#slack-credentials)                         | 1        | Slack API tokens                         |
-| [Slack Webhook](#slack-webhook)                                 | 1        | Slack webhook URLs                       |
-| [Passport Number](#passport-number)                              | 1        | Passport numbers (e.g. Turkish U + 8 digits) |
-| [Turkish Identity Numbers](#turkish-identity-numbers)           | 1        | Turkish national ID numbers (TCKN)       |
-| [Turkish ID Serial Number](#turkish-id-serial-number)          | 1        | Turkish ID card serial (e.g. A12Z34567)  |
-| [Turkish Tax Numbers](#turkish-tax-numbers)                     | 1        | Turkish tax identification numbers       |
+| Category                                                        | Patterns | Use Case                                     |
+| --------------------------------------------------------------- | -------- | -------------------------------------------- |
+| [Access Credentials](#access-credentials)                       | 10       | API keys, tokens, authentication             |
+| [Amazon Web Services](#amazon-web-services)                     | 5        | AWS keys, secrets, MWS tokens                |
+| [Cloudflare](#cloudflare)                                       | 4        | Cloudflare API tokens                        |
+| [Google Credentials](#google-credentials)                       | 6        | Google API keys, OAuth, service accounts     |
+| [Address Information](#address-information)                     | 1        | Physical addresses, location data            |
+| [Credit Card Information](#credit-card-information)             | 2        | Card numbers, CVV codes                      |
+| [Birthday Information](#birthday-information)                   | 1        | Date of birth, PII detection                 |
+| [Database Connection Strings](#database-connection-strings)     | 1        | DB URLs, connection strings                  |
+| [Email Addresses](#email-addresses)                             | 1        | Email detection                              |
+| [Fax Numbers](#fax-numbers)                                     | 1        | Fax number detection                         |
+| [Github Credentials](#github-credentials)                       | 7        | GitHub PATs, OAuth, App tokens               |
+| [IBAN Information](#iban-information)                           | 1        | Bank account numbers                         |
+| [IP Addresses](#ip-addresses)                                   | 1        | IPv4 address detection                       |
+| [Mac Addresses](#mac-addresses)                                 | 1        | Mac Address Detection                        |
+| [OpenAI Credentials](#openai-credentials)                       | 1        | OpenAI API keys and tokens                   |
+| [Password](#password)                                           | 1        | Password detection in code/config            |
+| [Phone Numbers](#phone-numbers)                                 | 7        | Turkish phone number formats                 |
+| [Private Keys and Certificates](#private-keys-and-certificates) | 2        | Private keys, SSL/TLS certificates           |
+| [Slack Credentials](#slack-credentials)                         | 1        | Slack API tokens                             |
+| [Slack Webhook](#slack-webhook)                                 | 1        | Slack webhook URLs                           |
+| [Passport Number](#passport-number)                             | 1        | Passport numbers (e.g. Turkish U + 8 digits) |
+| [Turkish Identity Numbers](#turkish-identity-numbers)           | 1        | Turkish national ID numbers (TCKN)           |
+| [Turkish ID Serial Number](#turkish-id-serial-number)           | 1        | Turkish ID card serial (e.g. A12Z34567)      |
+| [Turkish Tax Numbers](#turkish-tax-numbers)                     | 1        | Turkish tax identification numbers           |
 
 ## Repository Structure
 
@@ -106,25 +106,24 @@ This category-based structure allows for better organization as the collection g
 **Patterns Included:**
 
 1. **Basic Authentication Tokens**
-
    - `\bbasic\s+([a-zA-Z0-9_\-\.=]{20,})\b` - HTTP Basic Auth tokens
    - `(?<=:\/\/)[a-zA-Z0-9]+:[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+` - Credentials in URLs
-2. **Bearer Tokens**
 
+2. **Bearer Tokens**
    - `\bbearer\s+([a-zA-Z0-9_\-\.=]{20,})\b` - OAuth Bearer tokens
    - `\beyJ[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]{43}\b` - JWT tokens
+
 3. **Python Package Index**
-
    - `pypi-[a-zA-Z0-9_-]{32,128}` - PyPI API tokens
-4. **Live/Test API Keys**
 
+4. **Live/Test API Keys**
    - `sk_live_[0-9a-zA-Z]{24,99}` - Live API keys (commonly used pattern for production API keys)
    - `sk_test_[0-9a-zA-Z]{24,99}` - Test API keys (commonly used pattern for test/staging API keys)
+
 5. **Generic API Keys**
-
    - `(?i)\b(?:api[\s_-]?key|x[\s_-]?api[\s_-]?key|access[\s_-]?token|auth[\s_-]?token|authorization|secret[\s_-]?key|client[\s_-]?secret)\b\s*(?:(?:[:=]\s*([A-Za-z0-9]{12,}))|(?:"([A-Za-z0-9]{12,})"))` - Generic API key patterns
-6. **Generic Secret Keys**
 
+6. **Generic Secret Keys**
    - `sk-[0-9a-zA-Z]{40,60}` - Generic secret keys
 
 ### Amazon Web Services
@@ -134,15 +133,14 @@ This category-based structure allows for better organization as the collection g
 **Patterns Included:**
 
 1. **AWS Access Key IDs**
-
    - `AKIA[0-9A-Z]{16}` - AWS Access Key IDs (standard format)
    - `ASIA[0-9A-Z]{16}` - AWS Temporary Access Key IDs (for temporary credentials)
    - `(?<![A-Za-z0-9_])(?-i:(?:A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16})(?![A-Za-z0-9_])` - Comprehensive AWS Access Key ID pattern covering all AWS credential prefixes (A3T, AKIA, AGPA, AIDA, AROA, AIPA, ANPA, ANVA, ASIA) with word boundary checks
+
 2. **AWS Secret Access Keys**
-
    - `aws_secret_access_key\s*=\s*["'']?[0-9a-zA-Z/+]{40}["'']?` - AWS Secret Access Keys in configuration format
-3. **Amazon Marketplace Web Service (MWS)**
 
+3. **Amazon Marketplace Web Service (MWS)**
    - `amzn\.mws\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}` - Amazon MWS access tokens in UUID format
 
 ### Cloudflare
@@ -164,16 +162,15 @@ This category-based structure allows for better organization as the collection g
 **Patterns Included:**
 
 1. **Google API Keys**
-
    - `AIza[0-9A-Za-z-_]{35}` - Google API keys (general format, used across multiple Google services including GCP, Drive, Gmail, YouTube)
    - `AIzaSy[a-zA-Z0-9-_]{33}` - Google Maps API keys
-2. **Google OAuth Credentials**
 
+2. **Google OAuth Credentials**
    - `GOCSPX-[a-zA-Z0-9]{20,35}` - Google OAuth client secrets
    - `[0-9]+-[0-9A-Za-z_]{32}\.apps\.googleusercontent\.com` - Google OAuth client IDs (used for GCP, Drive, Gmail, YouTube OAuth applications)
    - `ya29\.[0-9A-Za-z\-_]+` - Google OAuth access tokens
-3. **Google Service Account**
 
+3. **Google Service Account**
    - `"type":\s*"service_account"` - Google Cloud Platform service account JSON files
 
 ---
@@ -194,7 +191,6 @@ This category-based structure allows for better organization as the collection g
 **Patterns Included:**
 
 1. **Credit Card Numbers**
-
    - `(?:credit|card|kredi|kart|amex|visa|master|discover|american express|troy|kk|cc|cc_no|kartno|banka)[^\d]{0,20}?\b(4\d{3}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{1,4}|(?:5[1-5]\d{2}|2(?:2[2-9]\d|[3-6]\d{2}|7[01]\d|720))[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}|3[47]\d{2}[\s-]?\d{6}[\s-]?\d{5}|6(?:011|5\d{2})[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}|(?:9792|65\d{2}|2205)[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}|36[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{2})\b` - Detects credit card numbers from major payment networks:
      - **Visa**: Cards starting with 4 (13-16 digits)
      - **Mastercard**: Cards starting with 5[1-5] or 2[2-9] (16 digits)
@@ -203,8 +199,8 @@ This category-based structure allows for better organization as the collection g
      - **TROY**: Turkish domestic scheme — starts with 9792, 65XX, 36, or 2205 (14 or 16 digits)
      - Supports Turkish and English keywords (credit, card, kredi, kart, troy, etc.)
      - Handles various formatting styles (spaces, hyphens, or no separators)
-2. **CVV/CVC Security Codes**
 
+2. **CVV/CVC Security Codes**
    - `(cvc|cvv|security[\s_-]?code)[\s:=\-]{0,3}([0-9]{3})(?![0-9])` - Detects CVV (Card Verification Value) or CVC (Card Verification Code) security codes:
      - Matches 3-digit security codes
      - Supports keywords: cvc, cvv, security code
@@ -255,7 +251,6 @@ This category-based structure allows for better organization as the collection g
        - **Africa**: za
        - **Other**: co, io, br, ru
 
-
 ### Fax Numbers
 
 **Category Description:** Patterns for detecting fax numbers.
@@ -274,18 +269,25 @@ This category-based structure allows for better organization as the collection g
 
 ### Github Credentials
 
-**Category Description:** Patterns for detecting Github credentials.
+**Category Description:** Patterns for detecting GitHub personal access tokens, fine-grained tokens, OAuth tokens, and GitHub App tokens.
 
 **Patterns Included:**
 
-1. **GitHub Token Detection**
-   - `[gG][iI][tT][hH][uU][bB].*['|\"][0-9a-zA-Z]{35,40}['|\"]` - Detects GitHub tokens in quoted format:
-     - **Keyword Matching**: Matches "github" keyword (case-insensitive through character class matching)
-     - **Token Format**: Alphanumeric tokens with length between 35-40 characters
-     - **Quoted Strings**: Detects tokens enclosed in single or double quotes
-     - **Context Matching**: Requires "github" keyword before the token to reduce false positives
-     - **Format**: Matches patterns like `github_token = "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"` or `github: 'ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'`
+1. **GitHub Token Detection (Legacy)**
 
+   - `[gG][iI][tT][hH][uU][bB].*['|\"][0-9a-zA-Z]{35,40}['|\"]` - GitHub tokens in quoted format with keyword context
+2. **GitHub Personal Access Tokens**
+
+   - `ghp_[a-zA-Z0-9]{36}` - Classic personal access tokens (PAT)
+   - `github_pat_[a-zA-Z0-9]{22}_[a-zA-Z0-9]{59}` - Fine-grained personal access tokens
+3. **GitHub OAuth Tokens**
+
+   - `gho_[a-zA-Z0-9]{36}` - OAuth 2.0 access tokens
+4. **GitHub App Tokens**
+
+   - `ghu_[a-zA-Z0-9]{36}` - User-to-server access tokens
+   - `ghs_[a-zA-Z0-9]{36}` - Server-to-server (installation) access tokens
+   - `ghr_[a-zA-Z0-9]{36}` - Refresh tokens
 
 ### IBAN Information
 
@@ -302,8 +304,6 @@ This category-based structure allows for better organization as the collection g
      - **Grouping**: Matches IBANs formatted in 4-character groups separated by optional spaces
      - **Length**: Total length typically ranges from 15 to 34 characters depending on the country
      - **Word Boundaries**: Uses word boundaries to prevent partial matches
-
-
 
 ### IP Addresses
 
@@ -326,7 +326,6 @@ This category-based structure allows for better organization as the collection g
        - File paths or version numbers (e.g., `v1.2.3.4` won't match)
      - **Standalone Matching**: Ensures IP addresses are matched as complete, standalone entities
 
-
 ### Mac Addresses
 
 **Category Description:** Patterns for detecting MAC addresses.
@@ -345,8 +344,6 @@ This category-based structure allows for better organization as the collection g
        - `AA:BB:CC:DD:EE:FF` (uppercase)
      - **Anchored**: Uses line anchors (`^` and `$`) to ensure complete MAC address matching
      - **Length**: Total of 12 hexadecimal digits (48 bits)
-
-
 
 ### OpenAI Credentials
 
@@ -369,8 +366,6 @@ This category-based structure allows for better organization as the collection g
        - `sk-proj-AbCdEfGh1234567890...` (project key)
        - `sk-svcacct-XyZ123456789...` (service account key)
        - `sk-1234567890abcdef...` (legacy format)
-
-
 
 ### Password
 
@@ -413,37 +408,36 @@ This category-based structure allows for better organization as the collection g
 **Patterns Included:**
 
 1. **Formatted Phone Numbers with Parentheses**
-
    - `0 (\d{3}) \d{3} \d{2} \d{2}` - Turkish phone numbers with space and parentheses format:
      - **Format**: `0 (XXX) XXX XX XX`
      - **Example**: `0 (555) 123 45 67`
      - **Usage**: Common format for mobile numbers with visual grouping
-2. **Space-Separated Format**
 
+2. **Space-Separated Format**
    - `0\d{3} \d{3} \d{2} \d{2}` - Turkish phone numbers with space-separated format:
      - **Format**: `0XXX XXX XX XX`
      - **Example**: `0555 123 45 67`
      - **Usage**: Simplified format without parentheses
-3. **International Format with Country Code (+90)**
 
+3. **International Format with Country Code (+90)**
    - `\+90 \d{3} \d{3} \d{4}` - Turkish phone numbers in international format:
      - **Format**: `+90 XXX XXX XXXX`
      - **Example**: `+90 555 123 4567`
      - **Usage**: International dialing format with 10 consecutive digits after country code
-4. **International Format with Grouped Digits**
 
+4. **International Format with Grouped Digits**
    - `\+90 \d{3} \d{3} \d{2} \d{2}` - Turkish phone numbers with international code and grouped format:
      - **Format**: `+90 XXX XXX XX XX`
      - **Example**: `+90 555 123 45 67`
      - **Usage**: International format with visual digit grouping
-5. **International Format with Hyphens**
 
+5. **International Format with Hyphens**
    - `\+90-\d{3}-\d{3}-\d{2}-\d{2}` - Turkish phone numbers with hyphen separators:
      - **Format**: `+90-XXX-XXX-XX-XX`
      - **Example**: `+90-555-123-45-67`
      - **Usage**: Hyphen-separated international format
-6. **Contextual Phone Number Detection**
 
+6. **Contextual Phone Number Detection**
    - `(?i)\b(telefon|tel|gsm|cep|cell(?:ular)?(?:\s*no)?|phone(?:\s*number)?)\b.{0,30}?(?:\+?90\s*|0)?\s*\(?\d{3}\)?[\s.-]*\d{3}[\s.-]*\d{2}[\s.-]*\d{2}` - Context-aware phone number detection:
      - **Keywords**: Supports Turkish and English keywords:
        - Turkish: `telefon`, `tel`, `gsm`, `cep`
@@ -458,14 +452,13 @@ This category-based structure allows for better organization as the collection g
        - `GSM: +90 555 123 45 67`
        - `Phone: 555-123-45-67`
        - `Cep no: 0555.123.45.67`
-7. **Strict International Format with Parentheses**
 
+7. **Strict International Format with Parentheses**
    - `^\+90\s*\(\d{3}\)\s*\d{3}\s\d{2}\s\d{2}$` - Anchored international format with strict validation:
      - **Format**: `+90 (XXX) XXX XX XX`
      - **Example**: `+90 (555) 123 45 67`
      - **Anchored**: Uses line anchors (`^` and `$`) to ensure complete number matching
      - **Usage**: Strict validation for standalone phone number entries
-
 
 ### Private Keys and Certificates
 
@@ -474,20 +467,18 @@ This category-based structure allows for better organization as the collection g
 **Patterns Included:**
 
 1. **Private Key Detection**
-
    - `(?s)(-----BEGIN (?:PRIVATE|RSA PRIVATE|DSA PRIVATE|EC PRIVATE) KEY-----.*?-----END (?:PRIVATE|RSA PRIVATE|DSA PRIVATE|EC PRIVATE) KEY-----)` - Detects various types of private keys in PEM format:
      - **DOTALL Mode**: `(?s)` enables multiline matching
      - **Key Types**: PRIVATE KEY (PKCS#8), RSA PRIVATE KEY (PKCS#1), DSA PRIVATE KEY, EC PRIVATE KEY
      - **Structure**: Matches complete PEM format including headers, base64-encoded key data, and footers
      - **Non-Greedy Matching**: Uses `.*?` to match individual keys when multiple are present
-2. **SSL/TLS Certificate Detection**
 
+2. **SSL/TLS Certificate Detection**
    - `(?s)(-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----)` - Detects SSL/TLS certificates in PEM format:
      - **DOTALL Mode**: `(?s)` enables multiline matching
      - **Format**: Matches X.509 certificates in PEM encoding
      - **Use Cases**: SSL/TLS certificates, code signing, client authentication, CA certificates
      - **Non-Greedy Matching**: Captures individual certificates in certificate chains
-
 
 ### Slack Credentials
 
@@ -510,7 +501,6 @@ This category-based structure allows for better organization as the collection g
        - Third segment: 8-24 alphanumeric characters (secret part)
      - **Examples**: `xoxb-1234567890-1234567890-abcdefghijklmnop`, `xoxp-1234-5678-9012-abc123`
 
-
 ### Slack Webhook
 
 **Category Description:** Patterns for detecting Slack webhooks.
@@ -526,7 +516,6 @@ This category-based structure allows for better organization as the collection g
        - Third segment: Alphanumeric secret token
      - **Protocol**: Supports both HTTP and HTTPS
      - **Example**: `https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXX`
-
 
 ### Turkish Identity Numbers
 
@@ -544,7 +533,6 @@ This category-based structure allows for better organization as the collection g
      - **Separators**: Handles various separators between keyword and number (`:`, `.`, `_`, `-`, space)
      - **Quote Support**: Matches numbers with or without surrounding quotes
      - **Examples**: `TC Kimlik no: 12345678902`, `TCKN: "12345678904"`, `Identity Number: 98765432108`
-
 
 ### Turkish Tax Numbers
 
@@ -578,7 +566,6 @@ This category-based structure allows for better organization as the collection g
      - **Context Window**: Allows up to 10 non-word characters between keyword and number
      - **Case Insensitive**: Pattern matches keywords in various cases
      - **Examples**: `Pasaport no: U12345678`, `Passport: U87654321`, `belge U11223344`
-
 
 ### Turkish ID Serial Number
 
@@ -679,42 +666,36 @@ This category-based structure allows for better organization as the collection g
 **Patterns Included:**
 
 1. **Formatted Phone Numbers with Parentheses**
-
    - `0 (\d{3}) \d{3} \d{2} \d{2}` - Turkish phone numbers with space and parentheses format:
      - **Format**: `0 (XXX) XXX XX XX`
      - **Example**: `0 (555) 123 45 67`
      - **Usage**: Common format for mobile numbers with visual grouping
 
 2. **Space-Separated Format**
-
    - `0\d{3} \d{3} \d{2} \d{2}` - Turkish phone numbers with space-separated format:
      - **Format**: `0XXX XXX XX XX`
      - **Example**: `0555 123 45 67`
      - **Usage**: Simplified format without parentheses
 
 3. **International Format with Country Code (+90)**
-
    - `\+90 \d{3} \d{3} \d{4}` - Turkish phone numbers in international format:
      - **Format**: `+90 XXX XXX XXXX`
      - **Example**: `+90 555 123 4567`
      - **Usage**: International dialing format with 10 consecutive digits after country code
 
 4. **International Format with Grouped Digits**
-
    - `\+90 \d{3} \d{3} \d{2} \d{2}` - Turkish phone numbers with international code and grouped format:
      - **Format**: `+90 XXX XXX XX XX`
      - **Example**: `+90 555 123 45 67`
      - **Usage**: International format with visual digit grouping
 
 5. **International Format with Hyphens**
-
    - `\+90-\d{3}-\d{3}-\d{2}-\d{2}` - Turkish phone numbers with hyphen separators:
      - **Format**: `+90-XXX-XXX-XX-XX`
      - **Example**: `+90-555-123-45-67`
      - **Usage**: Hyphen-separated international format
 
 6. **Contextual Phone Number Detection**
-
    - `(?i)\b(telefon|tel|gsm|cep|cell(?:ular)?(?:\s*no)?|phone(?:\s*number)?)\b.{0,30}?(?:\+?90\s*|0)?\s*\(?\d{3}\)?[\s.-]*\d{3}[\s.-]*\d{2}[\s.-]*\d{2}` - Context-aware phone number detection:
      - **Keywords**: Supports Turkish and English keywords:
        - Turkish: `telefon`, `tel`, `gsm`, `cep`
@@ -744,7 +725,6 @@ This category-based structure allows for better organization as the collection g
 **Patterns Included:**
 
 1. **Private Key Detection**
-
    - `(?s)(-----BEGIN (?:PRIVATE|RSA PRIVATE|DSA PRIVATE|EC PRIVATE) KEY-----.*?-----END (?:PRIVATE|RSA PRIVATE|DSA PRIVATE|EC PRIVATE) KEY-----)` - Detects various types of private keys in PEM format:
      - **DOTALL Mode**: `(?s)` enables multiline matching
      - **Key Types**: PRIVATE KEY (PKCS#8), RSA PRIVATE KEY (PKCS#1), DSA PRIVATE KEY, EC PRIVATE KEY
