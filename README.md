@@ -1,3 +1,5 @@
+
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Trendyol/awesome-regex-list/badge)](https://scorecard.dev/viewer/?uri=github.com/Trendyol/awesome-regex-list)
 [![Patterns](https://img.shields.io/badge/patterns-37+-blue)](https://github.com/trendyol/awesome-regex-list)
 [![Categories](https://img.shields.io/badge/categories-15-green)](https://github.com/trendyol/awesome-regex-list)
 [![License](https://img.shields.io/badge/license-Apache%202.0-orange)](LICENSE)
